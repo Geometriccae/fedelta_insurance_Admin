@@ -1,0 +1,74 @@
+<div class="modal fade" id="add_modal" aria-hidden="true" class="modal fade" id="formmodal" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="exampleModalLabel">Add Quotation</h6>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body"><br>
+                            <form action="<?= base_url('leads/upload_document') ?>" method="post"
+                                enctype="multipart/form-data">
+                                <div class="row gy-4">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="document_type" class="form-label">Select Insurance
+                                                Company</label>
+                                            <select class="form-select" name="Insurance Type" id="Insurance Type">
+                                                <option value="" selected>Select Insurance Company</option>
+                                                <?php foreach ($insurers as $insurer): ?>
+                                                    <option value="<?php echo $insurer['insurer_name']; ?>">
+                                                        <?php echo $insurer['insurer_name']; ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="sum_insured" class="form-label">Sum Insured</label>
+                                            <input class="form-control" type="text" name="sum_insured" id="sum_insured"
+                                                placeholder="Enter sum insured amount">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="premium" class="form-label">Premium</label>
+                                            <input class="form-control" type="text" name="premium" id="premium"
+                                                placeholder="Enter premium amount">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="comments" class="form-label">Comments</label>
+                                            <textarea class="form-control" name="comments" rows="4" id="comments"
+                                                placeholder="Enter any comments"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="document2" class="form-label">Upload Document</label>
+                                            <input class="form-control" type="file" name="document2" id="formFile">
+                                        </div>
+                                    </div>
+
+                                    <!-- Hidden input for lead_id -->
+                                    <input type="hidden" name="lead_id" value="<?= $row['lead_id'] ?>">
+                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="float-end">
+                                            <div class="modal-footer">
+                                                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                                                <button type="submit" class="btn btn-outline-primary">Save
+                                                    Quotes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
